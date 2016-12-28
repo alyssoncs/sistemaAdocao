@@ -30,48 +30,54 @@ conjuge(cronos, reia).
 conjuge(zeus, dione).
 
 
-mae(gaia, cronos).
-mae(gaia, reia).
-mae(gaia, japeto).
-mae(reia, hades).
-mae(reia, hera).
-mae(reia, poseidon).
-mae(reia, demeter).
-mae(reia, zeus).
-mae(dione, afrodite).
-mae(hera, hefesto).
-mae(hera, ares).
-mae(demeter, persefone).
-mae(semele, dionisio).
+genitor(gaia, cronos).
+genitor(gaia, reia).
+genitor(gaia, japeto).
+genitor(reia, hades).
+genitor(reia, hera).
+genitor(reia, poseidon).
+genitor(reia, demeter).
+genitor(reia, zeus).
+genitor(dione, afrodite).
+genitor(hera, hefesto).
+genitor(hera, ares).
+genitor(demeter, persefone).
+genitor(semele, dionisio).
+genitor(urano, cronos).
+genitor(urano, reia).
+genitor(urano, japeto).
+genitor(japeto, epimeteu).
+genitor(japeto, prometeu).
+genitor(japeto, atlas).
+genitor(epimeteu, dione).
+genitor(cronos, hades).
+genitor(cronos, hera).
+genitor(cronos, poseidon).
+genitor(cronos, demeter).
+genitor(cronos, zeus).
+genitor(zeus, afrodite).
+genitor(zeus, atena).
+genitor(zeus, hefesto).
+genitor(zeus, ares).
+genitor(zeus, heracles).
+genitor(zeus, dionisio).
 
 
-pai(urano, cronos).
-pai(urano, reia).
-pai(urano, japeto).
-pai(japeto, epimeteu).
-pai(japeto, prometeu).
-pai(japeto, atlas).
-pai(epimeteu, dione).
-pai(cronos, hades).
-pai(cronos, hera).
-pai(cronos, poseidon).
-pai(cronos, demeter).
-pai(cronos, zeus).
-pai(zeus, afrodite).
-pai(zeus, atena).
-pai(zeus, hefesto).
-pai(zeus, ares).
-pai(zeus, heracles).
-pai(zeus, dionisio).
+pai(X, Y) :- genitor(X, Y), sexo(X, 'Masculino').
+mae(X, Y) :- genitor(X, Y), sexo(X, 'Feminino').
 
 
-filho(X, Y) :- pai(Y, X) ; mae(Y, X).
+filho(X, Y) :- genitor(Y, X) ; genitor(Y, X).
 
 nome(X, Y) 				:- pessoa(X, Y, _, _, _, _).
 idade(X, Y) 			:- pessoa(X, _, Y, _, _, _).
 sexo(X, Y) 				:- pessoa(X, _, _, Y, _, _).
 nacionalidade(X, Y) 	:- pessoa(X, _, _, _, Y, _).
 raca(X, Y) 				:- pessoa(X, _, _, _, _, Y).
+
+
+
+
 
 
 
