@@ -65,9 +65,7 @@ genitor(zeus, dionisio).
 
 pai(X, Y) :- genitor(X, Y), sexo(X, 'Masculino').
 mae(X, Y) :- genitor(X, Y), sexo(X, 'Feminino').
-
-
-filho(X, Y) :- genitor(Y, X) ; genitor(Y, X).
+filho(X, Y) :- genitor(Y, X).
 
 nome(X, Y) 				:- pessoa(X, Y, _, _, _, _).
 idade(X, Y) 			:- pessoa(X, _, Y, _, _, _).
