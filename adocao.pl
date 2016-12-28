@@ -24,23 +24,62 @@ pessoa(hefesto, 	'Hefesto', 150, 'Masculino', 'Brasileiro', 'Pardo').
 pessoa(persefone, 	'Persefone', 150, 'Masculino', 'Brasileiro', 'Pardo').
 pessoa(atena, 		'Atena', 150, 'Feminino', 'Brasileiro', 'Pardo').
 
+
 conjuge(urano, gaia).
 conjuge(cronos, reia).
 conjuge(zeus, dione).
 
-mae().
-mae().
-mae().
-mae().
-mae().
-mae().
-mae().
-mae().
-mae().
+
+mae(gaia, cronos).
+mae(gaia, reia).
+mae(gaia, japeto).
+mae(reia, hades).
+mae(reia, hera).
+mae(reia, poseidon).
+mae(reia, demeter).
+mae(reia, zeus).
+mae(dione, afrodite).
+mae(hera, hefesto).
+mae(hera, ares).
+mae(demeter, persefone).
+mae(semele, dionisio).
+
+
+pai(urano, cronos).
+pai(urano, reia).
+pai(urano, japeto).
+pai(japeto, epimeteu).
+pai(japeto, prometeu).
+pai(japeto, atlas).
+pai(epimeteu, dione).
+pai(cronos, hades).
+pai(cronos, hera).
+pai(cronos, poseidon).
+pai(cronos, demeter).
+pai(cronos, zeus).
+pai(zeus, afrodite).
+pai(zeus, atena).
+pai(zeus, hefesto).
+pai(zeus, ares).
+pai(zeus, heracles).
+pai(zeus, dionisio).
+
+
+filho(X, Y) :- pai(Y, X) ; mae(Y, X).
 
 nome(X, Y) 				:- pessoa(X, Y, _, _, _, _).
 idade(X, Y) 			:- pessoa(X, _, Y, _, _, _).
 sexo(X, Y) 				:- pessoa(X, _, _, Y, _, _).
 nacionalidade(X, Y) 	:- pessoa(X, _, _, _, Y, _).
 raca(X, Y) 				:- pessoa(X, _, _, _, _, Y).
+
+
+
+
+
+
+
+
+
+
 
