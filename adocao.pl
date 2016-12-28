@@ -24,6 +24,20 @@ pessoa(hefesto, 	'Hefesto', 150, 'Masculino', 'Brasileiro', 'Pardo').
 pessoa(persefone, 	'Persefone', 150, 'Masculino', 'Brasileiro', 'Pardo').
 pessoa(atena, 		'Atena', 150, 'Feminino', 'Brasileiro', 'Pardo').
 
+conjuge(urano, gaia).
+conjuge(cronos, reia).
+conjuge(zeus, dione).
+
+mae().
+mae().
+mae().
+mae().
+mae().
+mae().
+mae().
+mae().
+mae().
+
 nome(X, Y) 				:- pessoa(X, Y, _, _, _, _).
 idade(X, Y) 			:- pessoa(X, _, Y, _, _, _).
 sexo(X, Y) 				:- pessoa(X, _, _, Y, _, _).
