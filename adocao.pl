@@ -74,6 +74,8 @@ nacionalidade(X, Y) 	:- pessoa(X, _, _, _, Y, _).
 raca(X, Y) 				:- pessoa(X, _, _, _, _, Y).
 
 
+% Registro
+
 
 
 
