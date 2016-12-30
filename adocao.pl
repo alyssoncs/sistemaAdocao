@@ -74,6 +74,47 @@ nacionalidade(X, Y) 	:- pessoa(X, _, _, _, Y, _).
 raca(X, Y) 		:- pessoa(X, _, _, _, _, Y).
 
 
+% 		---------- Cadastro ----------
+/* 
+*	Ordem dos atributos de cadastro:
+*
+*	Dados_do_pretendente{
+* 		pessoa,
+*		escolaridade,
+*		profissao,
+*		filhosBiologicos
+*		filhosAdotivos,
+*	}
+*	Preferencia_do_pretendente{
+* 		sexo,
+*		raca,
+*		irmaos
+*	}
+*	Dados_do_cadastro{
+* 		status, 
+*		dataEntrada,
+*		dataValidade
+*	}
+*/
+
+
+cadastro(japeto, 'Ensino medio completo', 'Agricultor', 1, 0, 'Sem preferencia', 
+	'Sem preferencia', 'Aceita', 'Ativo', '28/12/2016', '28/12/2021').
+
+cadastro(hades, 'Ensino medio incompleto', 'Deus do mundo inferior', 0, 0, 'Sem preferencia', 
+	'Sem preferencia', 'Aceita', 'Ativo', '28/12/2016', '28/12/2021').
+	
+% 		------------------------------
+
+
+
+
+
+
+
+
+
+
 
 
 
