@@ -63,15 +63,15 @@ genitor(zeus, heracles).
 genitor(zeus, dionisio).
 
 
-pai(X, Y) 		:- genitor(X, Y), sexo(X, 'Masculino').
-mae(X, Y) 		:- genitor(X, Y), sexo(X, 'Feminino').
+pai(X, Y) 	:- genitor(X, Y), sexo(X, 'Masculino').
+mae(X, Y) 	:- genitor(X, Y), sexo(X, 'Feminino').
 filho(X, Y) 	:- genitor(Y, X).
 
-nome(X, Y) 				:- pessoa(X, Y, _, _, _, _).
-idade(X, Y) 			:- pessoa(X, _, Y, _, _, _).
-sexo(X, Y) 				:- pessoa(X, _, _, Y, _, _).
+nome(X, Y) 		:- pessoa(X, Y, _, _, _, _).
+idade(X, Y) 		:- pessoa(X, _, Y, _, _, _).
+sexo(X, Y) 		:- pessoa(X, _, _, Y, _, _).
 nacionalidade(X, Y) 	:- pessoa(X, _, _, _, Y, _).
-raca(X, Y) 				:- pessoa(X, _, _, _, _, Y).
+raca(X, Y) 		:- pessoa(X, _, _, _, _, Y).
 
 % ---------- Cadastro ----------
 /* 
@@ -98,7 +98,7 @@ raca(X, Y) 				:- pessoa(X, _, _, _, _, Y).
 
 
 cadastro(japeto, 'Ensino medio completo', 'Agricultor', 1, 0, 'Sem preferencia', 
-		'Sem preferencia', 'Aceita', 'Ativo', '28/12/2016', '28/12/2021').
+	'Sem preferencia', 'Aceita', 'Ativo', '28/12/2016', '28/12/2021').
 
 
 
