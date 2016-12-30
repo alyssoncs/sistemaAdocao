@@ -73,7 +73,7 @@ sexo(X, Y) 		:- pessoa(X, _, _, Y, _, _).
 nacionalidade(X, Y) 	:- pessoa(X, _, _, _, Y, _).
 raca(X, Y) 		:- pessoa(X, _, _, _, _, Y).
 
-% ---------- Cadastro ----------
+% 		---------- Cadastro ----------
 /* 
 *	Ordem dos atributos de cadastro:
 *
@@ -99,6 +99,11 @@ raca(X, Y) 		:- pessoa(X, _, _, _, _, Y).
 
 cadastro(japeto, 'Ensino medio completo', 'Agricultor', 1, 0, 'Sem preferencia', 
 	'Sem preferencia', 'Aceita', 'Ativo', '28/12/2016', '28/12/2021').
+
+cadastro(hades, 'Ensino medio incompleto', 'Deus do mundo inferior', 0, 0, 'Sem preferencia', 
+	'Sem preferencia', 'Aceita', 'Ativo', '28/12/2016', '28/12/2021').
+	
+% 		------------------------------
 
 
 
