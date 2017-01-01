@@ -113,10 +113,10 @@ cadastro(hades, 'Ensino medio incompleto', 'Deus do mundo inferior', 0, 0, 'Sem 
 % (tipo, nome, legalidade, descrição, direitos)
 % não sei como representar os direitos
 
-tipoAdocao(aberto, 'Aberto', 'Legal', 'O adotado tem direito de manter vinculo 
+tipoAdocao(aberta, 'Aberta', 'Legal', 'O adotado tem direito de manter vinculo 
 		com a familia biologica', 'Complete isso aqui').
 		
-tipoAdocao(fechado, 'Fechado', 'Legal', 'O adotado nao tem direito de manter 
+tipoAdocao(fechada, 'Fechada', 'Legal', 'O adotado nao tem direito de manter 
 		vinculo com a familia biologica', 'Complete isso aqui').
 		
 tipoAdocao(a_brasileira, 'A brasileira', 'Ilegal', 'O adotado é registrado 
@@ -131,12 +131,10 @@ tipoAdocao(a_brasileira, 'A brasileira', 'Ilegal', 'O adotado é registrado
 % (adotante, adotado, juiz, tipoAdocao, local, data, motivo) <- esta faltando as consequencias
 % Como representar as consequencias materiais?
 
-adocao(japeto, hera, sergio_moro, a_brasileira, 'Monte Olimpo', '01/01/2017', 'Auxiliar uma criança com dificuldades')
+adocao(japeto, hera, sergio_moro, a_brasileira, 'Monte Olimpo', '01/01/2017', 'Auxiliar uma criança com dificuldades').
+adocao(poseidon, dionisio, rafael_bruning, aberta, 'Grecia', '01/01/2017', 'Satisfazer desejo de ser mae/pai').
 
 %		----------------------------
-
-
-
 
 
 
