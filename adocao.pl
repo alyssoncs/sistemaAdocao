@@ -119,6 +119,10 @@ tipoAdocao(fechado, 'Fechado', 'Llegal', 'O adotado nao tem direito de manter vi
 
 
 
+%so um comentario
+
+
+
 
 
 
