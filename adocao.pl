@@ -133,6 +133,10 @@ tipoAdocao(a_brasileira, 'A brasileira', 'Ilegal', 'O adotado é registrado
 
 adocao(japeto, hera, sergio_moro, a_brasileira, 'Monte Olimpo', '01/01/2017', 'Auxiliar uma criança com dificuldades')
 
+%		----------------------------
+
+
+
 
 
 
