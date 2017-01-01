@@ -75,6 +75,7 @@ raca(X, Y) 		:- pessoa(X, _, _, _, _, Y).
 
 
 % 		---------- Cadastro ----------
+
 /* 
 *	Ordem dos atributos de cadastro:
 *
@@ -97,7 +98,6 @@ raca(X, Y) 		:- pessoa(X, _, _, _, _, Y).
 *	}
 */
 
-
 cadastro(japeto, 'Ensino medio completo', 'Agricultor', 1, 0, 'Sem preferencia', 
 	'Sem preferencia', 'Aceita', 'Ativo', '28/12/2016', '28/12/2021').
 
@@ -108,8 +108,13 @@ cadastro(hades, 'Ensino medio incompleto', 'Deus do mundo inferior', 0, 0, 'Sem 
 
 
 
+% 		---------- Tipos de adoção ----------
 
+% (tipo, nome, legalidade, descrição)
+% não sei como representar os direitos
 
+tipoAdocao(aberto, 'Aberto', 'Legal', 'O adotado tem direito de manter vinculo com a familia biologica').
+tipoAdocao(fechado, 'Fechado', 'Llegal', 'O adotado nao tem direito de manter vinculo com a familia biologica').
 
 
 
