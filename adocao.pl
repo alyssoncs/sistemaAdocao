@@ -24,6 +24,10 @@ pessoa(hefesto, 	'Hefesto', 150, 'Masculino', 'Brasileiro', 'Pardo').
 pessoa(persefone, 	'Persefone', 150, 'Masculino', 'Brasileiro', 'Pardo').
 pessoa(atena, 		'Atena', 150, 'Feminino', 'Brasileiro', 'Pardo').
 
+% a linha abaixo é um POG para permitir a contagem de pessoas na base de conhecimento
+% não adicionar ninguem abaixo de final
+pessoa(final, 		_, _, _, _, _).
+
 
 conjuge(urano, gaia).
 conjuge(cronos, reia).
@@ -138,7 +142,15 @@ adocao(poseidon, dionisio, rafael_bruning, aberta, 'Grecia', '01/01/2017', 'Sati
 
 
 
-%comentario
+%		---------- Porcentagens ----------
+
+qtdPessoas(-1) :- pessoa(final, _, _, _, _, _).
+qtdPessoas(X) :- qtdPessoas(pessoa(final, _, _, _, _, _).
+
+
+
+
+%		----------------------------------
 
 
 
