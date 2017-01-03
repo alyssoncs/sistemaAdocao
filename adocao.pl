@@ -109,14 +109,6 @@ cadastro(hades, 'Ensino medio incompleto', 'Deus do mundo inferior', 0, 0, 'Sem 
 
 
 
-%		---------- Motivos para adoção ----------
-
-motivoAdocao(infertilidade, 	'Impossibilidade de ter filhos biologicos').
-motivoAdocao(cimentar_lacos, 	'Cimentar os laços com o conjuge').
-motivoAdocao(compaixao, 	'Auxiliar uma criança com dificuldades').
-motivoAdocao(vocacao, 		'Satisfazer desejo de ser mae/pai').
-
-%		-----------------------------------------
 
 
 
@@ -149,13 +141,23 @@ tipoAdocao(internacional, 'Internacional', 'O adotado pertence a outro pais', 'C
 %		-------------------------------------
 
 
+%		---------- Motivos para adoção ----------
+
+motivoAdocao(infertilidade, 	'Impossibilidade de ter filhos biologicos').
+motivoAdocao(cimentar_lacos, 	'Cimentar os laços com o conjuge').
+motivoAdocao(compaixao, 	'Auxiliar uma criança com dificuldades').
+motivoAdocao(vocacao, 		'Satisfazer desejo de ser mae/pai').
+
+%		-----------------------------------------
+
+
 %		---------- Adoção ----------
 
-% (adotante, adotado, juiz, tipoAdocao, local, data, motivo) <- esta faltando as consequencias
+% (adotante, adotado, juiz, local, data, motivo, tipoAdocao) <- esta faltando as consequencias
 % Como representar as consequencias materiais?
 
-adocao(japeto, hera, sergio_moro, a_brasileira, 'Monte Olimpo', '01/01/2017', 'Auxiliar uma criança com dificuldades').
-adocao(poseidon, dionisio, rafael_bruning, aberta, 'Grecia', '01/01/2017', 'Satisfazer desejo de ser mae/pai').
+adocao(japeto, hera, sergio_moro, 'Monte Olimpo', '01/01/2017', compaixao, [a_brasileira]).
+adocao(poseidon, dionisio, rafael_bruning, 'Grecia', '01/01/2017', vocacao, [aberta, plena, nacional]).
 
 %		----------------------------
 
@@ -166,10 +168,10 @@ adocao(poseidon, dionisio, rafael_bruning, aberta, 'Grecia', '01/01/2017', 'Sati
 
 qtdPessoas(N) 		:- findall(X, pessoa(X, _, _, _, _, _), List), length(List, N).
 qtdAdocao(N) 		:- findall(X, adocao(X, _, _, _, _, _, _), List), length(List, N).
-qtdRazao(X, N) 		:- findall(X, adocao(_, _, _, _, _, _, X), List), length(List, N).
+qtdRazao(X, N) 		:- findall(X, adocao(_, _, _, _, _, X, _), List), length(List, N).
 
 percentAdocao(N) 	:- qtdAdocao(X), qtdPessoas(Y), N is (100*(X/Y)).
-percentRazao(N, R) 	:- qtdRazao(R, X), qtdPessoas(Y), N is (100*(X/Y)).
+percentRazao(R, N) 	:- qtdRazao(R, X), qtdPessoas(Y), N is (100*(X/Y)).
 
 
 %		----------------------------------
