@@ -142,11 +142,12 @@ adocao(poseidon, dionisio, rafael_bruning, aberta, 'Grecia', '01/01/2017', 'Sati
 %		---------- Porcentagens ----------
 
 
-qtdPessoas(N) :- findall(X, pessoa(X, _, _, _, _, _), List), length(List, N).
-qtdAdocao(N) :- findall(X, adocao(X, _, _, _, _, _, _), List), length(List, N).
+qtdPessoas(N) 		:- findall(X, pessoa(X, _, _, _, _, _), List), length(List, N).
+qtdAdocao(N) 		:- findall(X, adocao(X, _, _, _, _, _, _), List), length(List, N).
+qtdRazao(X, N) 		:- findall(X, adocao(_, _, _, _, _, _, X), List), length(List, N).
 
-percentAdocao(N) :- qtdPessoas(P), qtdAdocao(A) , N is (100*(A/P)).
-
+percentAdocao(N) 	:- qtdAdocao(X), qtdPessoas(Y), N is (100*(X/Y)).
+percentRazao(N, R) 	:- qtdRazao(R, X), qtdPessoas(Y), N is (100*(X/Y)).
 
 
 %		----------------------------------
