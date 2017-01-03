@@ -24,14 +24,7 @@ pessoa(hefesto, 	'Hefesto', 150, 'Masculino', 'Brasileiro', 'Pardo').
 pessoa(persefone, 	'Persefone', 150, 'Masculino', 'Brasileiro', 'Pardo').
 pessoa(atena, 		'Atena', 150, 'Feminino', 'Brasileiro', 'Pardo').
 
-/*
-* a lista abaixo é utilizada para contar a quantidade de pessoas
-* não encontrei nenhuma forma mais elegante para contar, ou de inserir as pessoas na lista
-*/
-listaDePessoas(X) :- X = [caos, gaia, urano, cronos, reia, japeto, epimeteu, prometeu, 
-				atlas, hades, hera, poseidon, demeter, zeus, dione, semele, 
-				afrodite, dionisio, heracles, ares, hefesto, persefone, atena].
-				
+
 
 conjuge(urano, gaia).
 conjuge(cronos, reia).
@@ -148,10 +141,11 @@ adocao(poseidon, dionisio, rafael_bruning, aberta, 'Grecia', '01/01/2017', 'Sati
 
 %		---------- Porcentagens ----------
 
-len([], 0). 
-len([_|T], N)  :-  len(T, X),  N  is  X+1.
 
-qtdPessoas(N) :- listaDePessoas(X), len(X, N).
+qtdPessoas(N) :- findall(X, pessoa(X, _, _, _, _, _), List), length(List, N).
+qtdAdocao(N) :- findall(X, adocao(X, _, _, _, _, _, _), List), length(List, N).
+
+percentAdocao(N) :- qtdPessoas(P), qtdAdocao(A) , N is (100*(A/P)).
 
 
 
