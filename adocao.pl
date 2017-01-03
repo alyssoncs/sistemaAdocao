@@ -109,10 +109,21 @@ cadastro(hades, 'Ensino medio incompleto', 'Deus do mundo inferior', 0, 0, 'Sem 
 
 
 
+%		---------- Motivos para adoção ----------
+
+motivoAdocao(infertilidade, 	'Impossibilidade de ter filhos biologicos').
+motivoAdocao(cimentar_lacos, 	'Cimentar os laços com o conjuge').
+motivoAdocao(compaixao, 	'Auxiliar uma criança com dificuldades').
+motivoAdocao(vocacao, 		'Satisfazer desejo de ser mae/pai').
+
+%		-----------------------------------------
+
+
+
 % 		---------- Tipos de adoção ----------
 
 % (tipo, nome, legalidade, descrição, direitos)
-% não sei como representar os direitos
+% não sei como representar os direitos (Provavelmente com uma lista)
 
 tipoAdocao(aberta, 'Aberta', 'Legal', 'O adotado tem direito de manter vinculo 
 		com a familia biologica', 'Complete isso aqui').
@@ -122,6 +133,17 @@ tipoAdocao(fechada, 'Fechada', 'Legal', 'O adotado nao tem direito de manter
 		
 tipoAdocao(a_brasileira, 'A brasileira', 'Ilegal', 'O adotado é registrado 
 		ilegalmente como filho biologico do adotante', 'Complete isso aqui').
+		
+tipoAdocao(simples, 'Simples', 'Legal', 'O adotado deve ter mais de 18 anos, nao tem os
+		mesmos direitos de filhos legais e revogavel', 'Complete isso aqui').
+
+tipoAdocao(plena, 'Plena', 'Legal', 'O adotado tem os mesmos direitos dos filhos biologicos 
+		e eh irrevogavel', 'Complete isso aqui').
+		
+tipoAdocao(nacional, 'Nacional', 'O adotado pertence ao mesmo pais do adotante', 'Complete isso aqui').
+
+
+tipoAdocao(internacional, 'Internacional', 'O adotado pertence a outro pais', 'Complete isso aqui').
 
 
 %		-------------------------------------
