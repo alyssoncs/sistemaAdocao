@@ -280,19 +280,19 @@ consequenciaImaterial(alimentacao).
 %adocao(X, _, _, _, _, _, _, _, _, _) :- idade(X, I), I >= 18, ! .
 
 adocao(japeto, crianca1, sergio_moro, 'Monte Olimpo', '01/01/2017', compaixao, [a_brasileira],
-	'desconhecido', [], [responsabilidade, filiacao]).
+	'Desconhecido', [], [responsabilidade, filiacao]).
 	
 adocao(poseidon, crianca2, rafael_bruning, 'Grecia', '01/01/2017', vocacao, [aberta, plena, nacional], 
-	'instituicao de caridade', [dividas], [filiacao]).
+	'Instituicao de caridade', [dividas], [filiacao]).
 	
 adocao(charles, crianca3, rafael_bruning, 'Inglaterra', '04/01/2017', infertilidade, [aberta, plena, internacional], 
-	'internacional', [heranca, dinheiro, imoveis], [filiacao, alimentacao, responsabilidade]).
+	'Internacional', [heranca, dinheiro, imoveis], [filiacao, alimentacao, responsabilidade]).
 
 adocao(elizabethII, crianca4, rafael_bruning, 'Inglaterra', '04/01/2017', vocacao, [aberta, plena, internacional], 
-	'internacional', [imoveis, dividas], [filiacao, alimentacao, educacao]).
+	'Internacional', [imoveis, dividas], [filiacao, alimentacao, educacao]).
 	
 adocao(semele, crianca5, sergio_moro, 'mundo inferior', '04/01/2017', cimentar_lacos, [a_brasileira], 
-	'desconhecido', [], [alimentacao, responsabilidade]).
+	'Desconhecido', [], [alimentacao, responsabilidade]).
 	
 adocao(caos, louise, sergio_moro, 'Inglaterra', '04/01/2017', vocacao, [fechada, plena, internacional], 
 	'Internacional', [moveis, imoveis, heranca], [alimentacao, responsabilidade, educacao]).
@@ -300,7 +300,11 @@ adocao(caos, louise, sergio_moro, 'Inglaterra', '04/01/2017', vocacao, [fechada,
 adocao(caos, crianca6, sergio_moro, 'Inglaterra', '04/01/2017', vocacao, [fechada, plena, internacional], 
 	'Internacional', [moveis, imoveis, heranca], [alimentacao, responsabilidade, educacao]).
 
+adocao(crianca1, crianca6, sergio_moro, 'Inglaterra', '04/01/2017', vocacao, [fechada, plena, internacional], 
+	'Internacional', [moveis, imoveis, heranca], [alimentacao, responsabilidade, educacao]).
 
+	
+adocaoValida(X, Y) :- adocao(X, Y, _, _, _, _, _, _, _, _), idade(X, N1), idade(Y, N2), N1 >= 18, (N1-N2) > 16.
 %		----------------------------
 
 
@@ -309,12 +313,24 @@ adocao(caos, crianca6, sergio_moro, 'Inglaterra', '04/01/2017', vocacao, [fechad
 
 
 qtdPessoas(N) 		:- findall(X, (pessoa(X, _, I, _, _, _), I >= 18), List), length(List, N).
-qtdAdocao(N) 		:- findall(X, adocao(X, _, _, _, _, _, _, _, _, _), List), length(List, N).
-qtdRazao(X, N) 		:- findall(X, adocao(_, _, _, _, _, X, _, _, _, _), List), length(List, N).
-qtdTipo(X, N)		:- findall(X, (adocao(_, _, _, _, _, _, Y, _, _, _), memberchk(X, Y)), List), length(List, N).
-qtdMecanismo(X, N)	:- findall(X, adocao(_, _, _, _, _, _, _, X, _, _), List), length(List, N).
-qtdConsequencia(X, N) 	:- findall(X, (adocao(_, _, _, _, _, _, _, _, Y, Z), (memberchk(X, Y); memberchk(X, Z))), List), length(List, N).
 
+
+qtdAdocao(N) 		:- findall(X, adocaoValida(X, _), List), length(List, N).
+
+
+qtdRazao(X, N) 		:- findall(X, (adocao(P1, P2, _, _, _, X, _, _, _, _), 
+					adocaoValida(P1, P2)), List), length(List, N).
+
+qtdTipo(X, N)		:- findall(X, (adocao(P1, P2, _, _, _, _, Y, _, _, _), 
+					adocaoValida(P1, P2), memberchk(X, Y)), List), length(List, N).
+						
+qtdMecanismo(X, N)	:- findall(X, (adocao(P1, P2, _, _, _, _, _, X, _, _),
+					adocaoValida(P1, P2)), List), length(List, N).
+						
+qtdConsequencia(X, N) 	:- findall(X, (adocao(P1, P2, _, _, _, _, _, _, Y, Z), adocaoValida(P1, P2), 
+					(memberchk(X, Y); memberchk(X, Z))), List), length(List, N).
+
+				
 				
 percentAdocao(N) 		:- qtdAdocao(X), qtdPessoas(Y), N is (100*(X/Y)).
 percentRazao(R, N) 		:- qtdRazao(R, X), qtdPessoas(Y), N is (100*(X/Y)).
