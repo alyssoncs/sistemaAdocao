@@ -143,7 +143,6 @@ genitor(autumn, isla).
 
 
 pai(X, Y) 		:- genitor(X, Y), sexo(X, 'Masculino').
-%pai(elizabethII, caos).
 mae(X, Y) 		:- genitor(X, Y), sexo(X, 'Feminino').
 filho(X, Y) 		:- genitor(Y, X).
 irmao(X, Y)		:- filho(X, Z), filho(Y, Z).
